@@ -10,3 +10,8 @@ jobs:
         uses: actions/checkout@main
       - name: Build Docker Image
         run: docker build -t notification-app .
+      - name: Push Docker image to amazon ecr
+        run: |
+             aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 055411382616.dkr.ecr.ap-south-1.amazonaws.com
+             docker tag notification-app:latest 055411382616.dkr.ecr.ap-south-1.amazonaws.com/pearlthoughts:notification-app
+             docker push 055411382616.dkr.ecr.ap-south-1.amazonaws.com/pearlthoughts:notification-app
