@@ -1,0 +1,12 @@
+name: Pearlthoughts
+
+on: push
+
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repo
+        uses: checkout@main
+      - name: Build Docker Image
+        run: docker build -t notification-app .
