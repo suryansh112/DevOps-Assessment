@@ -7,6 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone Repo
-        uses: checkout@main
+        uses: actions/checkout@main
       - name: Build Docker Image
         run: docker build -t notification-app .
