@@ -26,5 +26,5 @@ jobs:
         run: docker build -t notification-app .
       - name: Push Docker image to amazon ecr
         run: |
-             docker tag notification-app: latest 055411382616.dkr.ecr.ap-south-1.amazonaws.com/pearlthoughts:notification-app
+             docker tag notification-app:latest 055411382616.dkr.ecr.ap-south-1.amazonaws.com/pearlthoughts:notification-app
              docker push 055411382616.dkr.ecr.ap-south-1.amazonaws.com/pearlthoughts:notification-app
