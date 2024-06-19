@@ -40,4 +40,4 @@ jobs:
       run: |
            cd terraform
            terraform init
-           terraform plan -var="access_key=$AWS_ACCESS_KEY" -var="secret_key=$AWS_SECRET_KEY" -var="region='ap-south-1'"
+           terraform plan -var="access_key=$AWS_ACCESS_KEY" -var="secret_key=$AWS_SECRET_KEY" -var="region=ap-south-1"
