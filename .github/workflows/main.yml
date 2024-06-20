@@ -12,7 +12,7 @@ on:
         - apply
         - destroy
       dockerpush:
-        description: whether to build image or not
+        description: "whether to build image or not"
         required: true
         default: no
         type: choice
