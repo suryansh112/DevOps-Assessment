@@ -1,8 +1,9 @@
 terraform{
 backend "s3"{
     bucket = "suryanshtestbucket"
-    path = "/"
+    key = "/backend.tf"
     region = "ap-south-1"
+    
 
 }
 }
