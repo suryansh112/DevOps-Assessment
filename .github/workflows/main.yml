@@ -1,12 +1,21 @@
 name: Pearlthoughts
 
-on: push
-
+on: 
+  workflow_dispatch:
+    inputs:
+      command: 
+        description: "Terraform apply or destroy"
+        required: true
+        default: apply
+        type: choice
+        options:
+        - apply
+        - destroy        
 env:
   AWS_ACCESS_KEY: ${{secrets.AWS_ACCESS_KEY_ID}}
   AWS_SECRET_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
   REPO_NAME: ${{secrets.REPO_NAME}}
-
+  CHOICE: ${{inputs.command}}
 jobs:
   first_job:
     runs-on: ubuntu-latest
@@ -41,3 +50,4 @@ jobs:
            cd terraform
            terraform init
            terraform plan -var="access_key=$AWS_ACCESS_KEY" -var="secret_key=$AWS_SECRET_KEY" -var="region=ap-south-1"
+           terraform $CHOICE --auto-approve
