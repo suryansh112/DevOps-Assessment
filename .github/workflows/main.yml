@@ -11,6 +11,7 @@ on:
         options:
         - apply
         - destroy
+        - nochange
       dockerpush:
         description: "whether to build image or not"
         required: true
@@ -49,7 +50,7 @@ jobs:
              docker tag notification-app:latest $ECR_REGISTRY/$REPO_NAME:notification-app
              docker push $ECR_REGISTRY/$REPO_NAME:notification-app
   second_job:
-    needs: first_job
+    if: inputs.command == ${{'apply' || 'destroy'}}
     runs-on: ubuntu-latest
     steps: 
     - name: Clone Repo
