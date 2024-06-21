@@ -54,7 +54,7 @@ resource "aws_ecs_task_definition" "service" {
   container_definitions = jsonencode([
     {
       name      = "pearlthoughtsservice"
-      image     = "055411382616.dkr.ecr.ap-south-1.amazonaws.com/pearlthoughts:notification-app2"
+      image     = "055411382616.dkr.ecr.ap-south-1.amazonaws.com/pearlthoughts:notification-app"
       cpu       = 10
       memory    = 512
       essential = true
